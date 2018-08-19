@@ -1,5 +1,5 @@
 var staticCacheName = 'nws-restaurant-stage-1';
-let swfilelist = [
+let fileToCache = [
     'index.html',
     'restaurant.html',
     'js/dbhelper.js',
@@ -12,10 +12,11 @@ let swfilelist = [
 ];
 
 self.addEventListener('install', function (event) {
+    console.log('service worker installed');
     event.waitUntil(
         caches.open(staticCacheName).then(function (cache) {
             console.log('serviceWorker is caching app shell');
-            return cache.addAll(swfilelist);
+            return cache.addAll(fileToCache);
         })
     );
 });

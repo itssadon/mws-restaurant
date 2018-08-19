@@ -1,5 +1,5 @@
 let restaurant;
-var newMap;
+var map;
 
 /**
  * Initialize ServiceWorker
@@ -8,8 +8,9 @@ document.addEventListener('DOMContentLoaded', (event) => {
   DBHelper.startServiceWorker();
 });
 
+
 /**
- * Initialize Google map
+ * Initialize Google map, called from HTML.
  */
 window.initMap = () => {
   fetchRestaurantFromURL((error, restaurant) => {
@@ -58,11 +59,11 @@ fetchRestaurantFromURL = (callback) => {
 fillRestaurantHTML = (restaurant = self.restaurant) => {
   const name = document.getElementById('restaurant-name');
   name.innerHTML = restaurant.name;
-  name.tabIndex = "0";
+  name.tabIndex = '0';
 
   const address = document.getElementById('restaurant-address');
   address.innerHTML = restaurant.address;
-  address.tabIndex = "0";
+  address.tabIndex = '0';
 
   const image = document.getElementById('restaurant-img');
   image.className = 'restaurant-img'
@@ -71,7 +72,7 @@ fillRestaurantHTML = (restaurant = self.restaurant) => {
 
   const cuisine = document.getElementById('restaurant-cuisine');
   cuisine.innerHTML = restaurant.cuisine_type;
-  cuisine.tabIndex = "0";
+  cuisine.tabIndex = '0';
 
   // fill operating hours
   if (restaurant.operating_hours) {
@@ -91,16 +92,16 @@ fillRestaurantHoursHTML = (operatingHours = self.restaurant.operating_hours) => 
 
     const day = document.createElement('td');
     day.innerHTML = key;
-    day.tabIndex = "0";
+    day.tabIndex = '0';
     row.appendChild(day);
 
     const time = document.createElement('td');
     time.innerHTML = operatingHours[key];
-    time.tabIndex = "0";
+    time.tabIndex = '0';
     row.appendChild(time);
 
-    hours.tabIndex = "0";
     hours.appendChild(row);
+    hours.tabIndex = '0';
   }
 }
 
@@ -111,13 +112,13 @@ fillReviewsHTML = (reviews = self.restaurant.reviews) => {
   const container = document.getElementById('reviews-container');
   const title = document.createElement('h3');
   title.innerHTML = 'Reviews';
-  title.tabIndex = "0";
+  title.tabIndex = '0';
   container.appendChild(title);
 
   if (!reviews) {
     const noReviews = document.createElement('p');
     noReviews.innerHTML = 'No reviews yet!';
-    noReviews.tabIndex = "0";
+    noReviews.tabIndex = '0';
     container.appendChild(noReviews);
     return;
   }
@@ -135,22 +136,22 @@ createReviewHTML = (review) => {
   const li = document.createElement('li');
   const name = document.createElement('p');
   name.innerHTML = review.name;
-  name.tabIndex = "0";
+  name.tabIndex = '0';
   li.appendChild(name);
 
   const date = document.createElement('p');
   date.innerHTML = review.date;
-  date.tabIndex = "0";
+  date.tabIndex = '0';
   li.appendChild(date);
 
   const rating = document.createElement('p');
   rating.innerHTML = `Rating: ${review.rating}`;
-  rating.tabIndex = "0";
+  rating.tabIndex = '0';
   li.appendChild(rating);
 
   const comments = document.createElement('p');
   comments.innerHTML = review.comments;
-  title.tabIndex = "0";
+  comments.tabIndex = '0';
   li.appendChild(comments);
 
   return li;
@@ -159,7 +160,7 @@ createReviewHTML = (review) => {
 /**
  * Add restaurant name to the breadcrumb navigation menu
  */
-fillBreadcrumb = (restaurant=self.restaurant) => {
+fillBreadcrumb = (restaurant = self.restaurant) => {
   const breadcrumb = document.getElementById('breadcrumb');
   const li = document.createElement('li');
   li.setAttribute("aria-current", "page");
