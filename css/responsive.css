@@ -34,6 +34,10 @@
     display: flex;
 }
 
+.filter-options {
+    text-align: center
+}
+
 .inside #map-container {
     width: 100%;
 }
@@ -51,6 +55,7 @@
 #restaurants-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 #filter-container {
