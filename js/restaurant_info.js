@@ -2,6 +2,13 @@ let restaurant;
 var newMap;
 
 /**
+ * Initialize ServiceWorker
+ */
+document.addEventListener('DOMContentLoaded', (event) => {
+  DBHelper.startServiceWorker();
+});
+
+/**
  * Initialize Google map
  */
 window.initMap = () => {
