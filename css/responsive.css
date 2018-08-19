@@ -1,4 +1,4 @@
-@charset "utf-8";
+@charset "UTF-8";
 /* CSS Document */
 
 .skip-link {
@@ -21,8 +21,11 @@
 }
 
 #map-container,
-.filter-container,
-footer {
+.filter-container {
+    width: 100%;
+}
+
+#breadcrumb {
     width: 100%;
 }
 
@@ -73,13 +76,5 @@ footer {
     }
     .inside #reviews-container {
         width: 50%;
-    }
-}
-
-@media screen and (min-width: 850px) {
-    #maincontent {
-        width: 850px;
-        margin-left: auto;
-        margin-right: auto;
     }
 }
