@@ -1,9 +1,5 @@
-# Mobile Web Specialist Certification Course
----
-#### _Three Stage Course Material Project - Restaurant Reviews_
 
-## Project Overview: Stage 1
-# Mobile Web Specialist Certification Course
+# Mobile Web Specialist Nanodegree Scholarship
 ---
 #### _Three Stage Course Material Project - Restaurant Reviews_
 
