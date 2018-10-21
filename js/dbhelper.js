@@ -1,18 +1,18 @@
 /**
  * Common database helper functions.
  */
-class DBHelper {
-
+export default class DBHelper {
   /**
    * Database URL.
    * Change this to restaurants.json file location on your server.
    */
   static get DATABASE_URL() {
-    const port = 8000; // Change this to your server port
-    // return `http://localhost:${port}/data/restaurants.json`;
-    return `data/restaurants.json`;
+    /*
+    const port = 1337; // Change this to your server port
+    return `http://localhost:${port}/restaurants/`;
+    */
+    return 'data/restaurants.json';
   }
-
   /**
    * Fetch all restaurants.
    */
@@ -31,7 +31,6 @@ class DBHelper {
     };
     xhr.send();
   }
-
   /**
    * Fetch a restaurant by its ID.
    */
@@ -50,7 +49,6 @@ class DBHelper {
       }
     });
   }
-
   /**
    * Fetch restaurants by a cuisine type with proper error handling.
    */
@@ -66,7 +64,6 @@ class DBHelper {
       }
     });
   }
-
   /**
    * Fetch restaurants by a neighborhood with proper error handling.
    */
@@ -82,7 +79,6 @@ class DBHelper {
       }
     });
   }
-
   /**
    * Fetch restaurants by a cuisine and a neighborhood with proper error handling.
    */
@@ -103,7 +99,6 @@ class DBHelper {
       }
     });
   }
-
   /**
    * Fetch all neighborhoods with proper error handling.
    */
@@ -121,7 +116,6 @@ class DBHelper {
       }
     });
   }
-
   /**
    * Fetch all cuisines with proper error handling.
    */
@@ -139,25 +133,23 @@ class DBHelper {
       }
     });
   }
-
   /**
    * Restaurant page URL.
    */
   static urlForRestaurant(restaurant) {
     return (`./restaurant.html?id=${restaurant.id}`);
   }
-
   /**
    * Restaurant image URL.
    */
   static imageUrlForRestaurant(restaurant) {
     return (`img/${restaurant.photograph}`);
   }
-
   /**
    * Map marker for a restaurant.
    */
   static mapMarkerForRestaurant(restaurant, map) {
+    var google;
     const marker = new google.maps.Marker({
       position: restaurant.latlng,
       title: restaurant.name,
@@ -167,8 +159,6 @@ class DBHelper {
     });
     return marker;
   }
-
-
   /**
    * Start ServiceWorker
    */
@@ -182,6 +172,4 @@ class DBHelper {
         });
     }
   }
-
-
 }
