@@ -28,7 +28,17 @@ class DBHelper {
   }
 
   static startIdb() {
-    //TODO
+    if (!navigator.serviceWorker) {
+      return Promise.resolve();
+    }
+    /*eslint-disable no-undef*/
+    return idb.open('restaurantDb', 1, function (upgradeDB) {
+      var store = upgradeDB.createObjectStore('restaurantDb', {
+        keyPath: 'id'
+      });
+      store.createIndex('by-id', 'id');
+    });
+    /*eslint-enable no-undef*/
   }
 
   /**
