@@ -4,11 +4,11 @@
   "description": "mws-restaurant-review",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "gulp tests"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lucab85/mws-restaurant.git"
+    "url": "git+https://github.com/itssadon/mws-restaurant.git"
   },
   "keywords": [
     "mobile web specialist",
@@ -18,9 +18,9 @@
   "author": "Luca Berton",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lucab85/mws-restaurant/issues"
+    "url": "https://github.com/itssadon/mws-restaurant/issues"
   },
-  "homepage": "https://github.com/lucab85/mws-restaurant#readme",
+  "homepage": "https://github.com/itssadon/mws-restaurant#readme",
   "dependencies": {
     "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
