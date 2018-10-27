@@ -32,13 +32,26 @@ class DBHelper {
       return Promise.resolve();
     }
     /*eslint-disable no-undef*/
-    return idb.open('restaurantDb', 1, function (upgradeDB) {
-      var store = upgradeDB.createObjectStore('restaurantDb', {
+    return idb.open('db_name', 1, function (upgradeDB) {
+      var store = upgradeDB.createObjectStore('idb_name', {
         keyPath: 'id'
       });
       store.createIndex('by-id', 'id');
     });
     /*eslint-enable no-undef*/
+  }
+
+  static saveToDatabase(data) {
+    return DBHelper.openDatabase().then(function (db) {
+      if (!db)
+        return;
+      var tx = db.transaction(idb_name, 'readwrite');
+      var store = tx.ObjectStore(idb_name);
+      data.forEach(function (restaurant) {
+        store.put(restaurant);
+      });
+      return tx.compete;
+    });
   }
 
   /**
