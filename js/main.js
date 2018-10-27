@@ -184,7 +184,7 @@ addMarkersToMap = (restaurants = self.restaurants) => {
     this.google.maps.event.addListener(marker, 'click', () => {
       window.location.href = marker.url;
     });
-    self.markers.push(marker);
+    this.markers.push(marker);
   });
 };
 /*eslint-disable no-undef*/

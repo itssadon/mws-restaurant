@@ -5,14 +5,17 @@ let restaurant;
 let map;
 /*eslint-enable no-unused-vars*/
 
+import DBHelper from './dbhelper.js';
+
 /**
  * Initialize ServiceWorker
  */
 /*eslint-disable no-unused-vars*/
-/*eslint-disable no-undef*/
+
 document.addEventListener('DOMContentLoaded', (event) => {
   DBHelper.startServiceWorker();
 });
+/*eslint-disable no-undef*/
 
 /**
  * Initialize Google map, called from HTML.
