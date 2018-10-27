@@ -79,7 +79,9 @@ gulp.task('lint', function () {
     .pipe(eslint.failOnError());
 });
 
-gulp.task('tests', function () {});
+gulp.task('tests', function () {
+  // Placeholder for tests
+});
 
 gulp.task('webserver', function () {
   gulp.src('dist')
