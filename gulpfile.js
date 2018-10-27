@@ -32,22 +32,38 @@ gulp.task('dist', [
 
 gulp.task('scripts', function () {
   gulp.src('js/**/*.js')
-    .pipe(babel({
-      presets: ['env']
-    }))
     .pipe(gulp.dest('dist/js'));
-  gulp.src('*.js')
-    .pipe(babel())
+  gulp.src('sw.js')
     .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('scripts-dist', function () {
   gulp.src('js/**/*.js')
+    .pipe(gulp.dest('dist/js'));
+  gulp.src('sw.js')
+    .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('scripts-lint', function () {
+  gulp.src('js/**/*.js')
     .pipe(babel({
       presets: ['env']
     }))
     .pipe(gulp.dest('dist/js'));
-  gulp.src('*.js')
+  gulp.src('sw.js')
+    .pipe(babel({
+      presets: ['env']
+    }))
+    .pipe(gulp.dest('dist/'));
+});
+
+gulp.task('scripts-dist-lint', function () {
+  gulp.src('js/**/*.js')
+    .pipe(babel({
+      presets: ['env']
+    }))
+    .pipe(gulp.dest('dist/js'));
+  gulp.src('sw.js')
     .pipe(babel({
       presets: ['env']
     }))
@@ -86,7 +102,7 @@ gulp.task('lint', function () {
 });
 
 gulp.task('tests', function () {
-  // Placeholder for tests
+  //placeholder for tests
 });
 
 gulp.task('webserver', function () {

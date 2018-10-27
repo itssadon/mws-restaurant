@@ -5,11 +5,11 @@ let restaurants,
   neighborhoods,
   cuisines;
 let map;
-let markers = [];
+var markers = [];
 /*eslint-enable no-unused-vars*/
 
 /**
- * Initialize ServiceWorker, fetch neighborhoods and cuisines as soon
+ * Initialize ServiceWorker, fetch neighborhoods and cuisines as soon 
  * as the page is loaded.
  */
 /*eslint-disable no-unused-vars*/
