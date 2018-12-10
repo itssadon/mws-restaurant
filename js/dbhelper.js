@@ -185,10 +185,13 @@ class DBHelper {
         scope: '/'
       })
         .then(reg => {
-          document.getElementById('restoForm').addEventListener('submit', () => {
-            reg.sync.register('review-sync')
-              .then(() => console.log('Review sync registered'));
-          });
+          const restoForm = document.getElementById('restoForm');
+          if (restoForm) {
+            restoForm.addEventListener('submit', () => {
+              reg.sync.register('review-sync')
+                .then(() => console.log('Review sync registered'));
+            });
+          }
         })
         .catch(err => console.log('SW Registration failed with ' + err));
     }

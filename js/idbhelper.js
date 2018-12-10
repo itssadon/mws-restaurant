@@ -84,7 +84,8 @@ class IDBHelper {
       .then(res => res.json())
       .then(json => {
         json.map(restaurant => IDBHelper.populateRestaurantsWithReviews(restaurant, dbPromise));
-      });
+      })
+      .catch(err => console.log('API fetch failed ' + err));
   }
 
   /**
@@ -102,7 +103,8 @@ class IDBHelper {
           item.reviews = reviews;
           store.put(item);
           tx.complete;
-        }));
+        }))
+      .catch(err => console.log('API fetch failed ' + err));
   }
 
   /**
